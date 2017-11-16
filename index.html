@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Friend in Need</title>
+
+        <link rel="stylesheet" href="lib/Bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="lib/jQuery/jquery.ui.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <div class="header">
+         
+        <h1>Drag and drop tasks</h1>    
+        </div>
+        
+        <div id="container">
+
+            
+
+            <div class="task-list task-container" id="pending">
+                <h3>To Do</h3>                
+            </div>
+
+            <div class="task-list task-container" id="inProgress">
+                <h3>Doing</h3>
+            </div>
+
+            <div class="task-list task-container" id="completed">
+                <h3>Done</h3>
+            </div>
+
+            <div class="task-list-add">
+                <h2>Add a task</h2>
+                <form id="todo-form">
+                    <input type="text" placeholder="Title" />
+                    <textarea placeholder="Description"></textarea>
+                    <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)" />
+                    
+<!--                    <input style="margin-top:5px;" type="button" class="btn btn-success" value="Add Task" onclick="todo.add();" />-->
+                    <button class="button" type="button" value="Add Task" onclick="todo.add();"><span><strong>ADD </strong></span></button>
+                </form>
+
+<!--                <input style="margin-top:-15px;margin-bottom:-7px;" type="button" class="btn btn-danger" value="Delete all" onclick="todo.clear();" />-->
+                <button style="margin-top:-15px;margin-bottom:-7px;" class="delete-button" type="button" value="Delete all" onclick="todo.clear();"><span><strong>DELETE ALL </strong> </span></button>
+                <div id="delete-div">
+                    <strong>Drag Here to Delete</strong>
+                    <img src="img/delete24.png">
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+	          <script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+            <script type="text/javascript" src="lib/Bootstrap/bootstrap.min.js"></script>
+            <script type="text/javascript" src="lib/jQuery/jquery.ui.min.js"></script>
+            <script type="text/javascript" src="js/main.js"></script>
+
+            <script type="text/javascript">
+                $( "#datepicker" ).datepicker();
+                $( "#datepicker" ).datepicker("option", "dateFormat", "dd/mm/yy");
+
+                $(".task-container").droppable();
+                $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
+                todo.init();
+            </script>
+
+        </div>
+    </body>
+</html>
